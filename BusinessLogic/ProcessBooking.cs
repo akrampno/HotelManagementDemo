@@ -32,8 +32,8 @@ namespace HotelManagementSystem.BusinessLogic
                 BookingDetail.BookingId = BookingConfirmationNo;
                 BookingDetail.HotelId = request.HotelId;
                 BookingDetail.RoomId = request.RoomId;
-                BookingDetail.FromDate = request.FromDate;
-                BookingDetail.ToDate = request.ToDate;
+                BookingDetail.FromDate = (DateTime)request.FromDate;
+                BookingDetail.ToDate = (DateTime)request.ToDate;
                 BookingDetail.PaymentStatus = request.PaymentStatus;
                 //Room.BookingDetail = BookingDetail;
 

@@ -20,7 +20,7 @@ namespace HotelManagementSystem.Repositories
         {
             var AllResult = from d in _context.Hotels.Include(e => e.Rooms) select d;
             
-            if(null != Location)
+            if(string.IsNullOrEmpty(Location) == false)
             {
                 AllResult = AllResult.Where(h => h.Location.Contains(Location));
             }
@@ -35,7 +35,10 @@ namespace HotelManagementSystem.Repositories
         {
             Hotel Hotel = _context.Hotels.Include(e => e.Rooms).Where(o => o.Id == Id)                
                 .FirstOrDefault();
-            return Hotel;
+            if (null != Hotel)
+                return Hotel;
+            else
+                return null;
         }
 
 
@@ -58,7 +61,7 @@ namespace HotelManagementSystem.Repositories
             try
             {
                 _context.BookingDetails.Add(BookingDetail);
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return true;
             }
             catch (Exception e)

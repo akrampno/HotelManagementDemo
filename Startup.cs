@@ -1,5 +1,7 @@
 using HotelManagementSystem.BusinessLogic;
 using HotelManagementSystem.Contexts;
+using HotelManagementSystem.Controllers;
+using HotelManagementSystem.Logger;
 using HotelManagementSystem.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -39,6 +42,7 @@ namespace HotelManagementSystem
             services.AddScoped<IProcessBooking, ProcessBooking>();
             services.AddScoped<IBusinessRules, BusinessRules>();
             services.AddScoped<IGetBookings, GetBookings>();
+            services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,25 +51,28 @@ namespace HotelManagementSystem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {                       
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelManagementSystem v1"));
             }
+
+            app.UseExceptionHandler("/error");
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            
         }
     }
 }

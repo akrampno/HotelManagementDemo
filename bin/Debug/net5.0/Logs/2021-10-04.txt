@@ -1,0 +1,45 @@
+2021-10-04 02:02:48,847 [14] INFO  App  
+ Log System Initialized 
+ 
+2021-10-04 02:02:48,894 [14] INFO  App  
+ Test value 
+ 
+2021-10-04 02:06:30,005 [4] INFO  App  
+ Log System Initialized 
+ 
+2021-10-04 02:06:30,112 [4] INFO  App  
+ Received Booking request:{"HotelId":1,"RoomId":1,"RoomTypeCode":1,"NoofDays":1,"FromDate":"2021-10-03T22:06:20.774Z","ToDate":"2021-10-03T22:06:20.774Z","PaymentStatus":0} 
+ 
+2021-10-04 02:08:02,676 [13] INFO  App  
+ Log System Initialized 
+ 
+2021-10-04 02:08:02,718 [13] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:11:02,752 [8] INFO  App  
+ Log System Initialized 
+ 
+2021-10-04 02:11:44,573 [20] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:12:50,836 [29] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:13:07,383 [26] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:13:41,988 [15] INFO  App  
+ Log System Initialized 
+ 
+2021-10-04 02:13:42,021 [15] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:13:53,024 [9] INFO  App  
+ Received get hotel list request 
+ 
+2021-10-04 02:14:08,205 [15] INFO  App  
+ Received get hotel details for hotel id:4 
+ 
+2021-10-04 02:14:33,091 [18] INFO  App  
+ Received Booking request:{"HotelId":4,"RoomId":7,"RoomTypeCode":2,"NoofDays":2,"FromDate":"2021-10-03T22:14:17.344Z","ToDate":"2021-10-03T22:14:17.344Z","PaymentStatus":0} 
+ 
